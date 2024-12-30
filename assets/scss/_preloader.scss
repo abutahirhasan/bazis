@@ -1,0 +1,104 @@
+.back-to-top{
+    border-radius: 50%;
+    background-color: $theme-color;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    color: $white;
+    font-size: 18px;
+    position: fixed;
+    display: inline-block;
+    z-index: 9999;
+    right: 30px;
+    bottom: 30px;
+    @include transition;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+
+    &:hover {
+        background-color: $header-color;
+        color: $white;
+    }
+    
+    &.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(0);
+    }
+}
+
+.header-search-bar {
+	height: 270px;
+	position: fixed;
+	top: -200%;
+	left: 0;
+	right: 0;
+	z-index: 9999;
+	background: $white;
+    transition: .3s;
+    box-shadow: $shadow;
+    &.search-open{
+        top: 0;
+    }
+}
+.contact-search-form-box{
+    margin-top: 50px;
+
+    & form{
+        position: relative;
+        & button{
+            position: absolute;
+            right: 30px;
+            top: 15px;
+            font-size: 18px;
+        }
+    }
+}
+.search-close {
+	position: absolute;
+	right: 50px;
+	top: 35px;
+	font-size: 50px;
+	color: $header-color;
+	font-weight: 300;
+	width: 45px;
+	height: 45px;
+}
+
+.search-bar {
+    .contact-search-form-box {
+        input {
+            border: none;
+            width: 100%;
+            outline: none;
+            color: $header-color;
+            border-bottom: 1px solid $border-color;
+            font-size: 24px;
+            padding-bottom: 30px;
+            font-weight: 400;
+            line-height: 1;
+
+            @include breakpoint (max-md){
+                font-size: 22px;
+            }
+
+            &::placeholder {
+                color: $header-color;
+            }
+        }
+
+        i {
+            color: #336AEA;
+        }
+
+        p {
+            color: #666C78;
+            padding-top: 15px;
+        }
+    }
+
+    .search-bar-title {
+        font-size: 25px;
+    }
+}

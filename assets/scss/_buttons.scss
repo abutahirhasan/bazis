@@ -1,0 +1,16 @@
+.theme-btn {
+    display: inline-block;
+    border-radius: 5px;
+    border: 1px solid #336AEA;
+    color: #336AEA;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: capitalize;
+    padding: 19px 24px;
+    line-height: 1;
+
+    &:hover {
+        background-color: $theme-color;
+        color: $white;
+    }
+}

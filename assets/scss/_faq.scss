@@ -1,0 +1,80 @@
+.faq-wrapper {
+
+    .faq-image {
+    
+            img {
+                @include imgw;
+            }
+        }
+    
+        .faq-content {
+            .accordion-item {
+                border: 0;
+                background-color: $white;
+        
+                .accordion-header { 
+                    .accordion-button { 
+                        font-weight: 600;
+                        color: $white;
+                        border: 0;
+                        border-radius: 5px 5px 0px 0px;
+                        background: #336AEA;
+                        box-shadow: none;
+                        padding: 20px 24px;
+                        text-transform: capitalize;
+                        font-size: 16px;
+                        border: 1px solid $border-color;
+                        border: 1px solid transparent;
+        
+                        &::after {
+                            content: "\f055";
+                            font-family: "Font Awesome 6 pro";
+                            background: transparent;
+                            font-weight: 500;
+                            transition: all 0.3s ease-in-out !important;
+                            color: #666;
+                        }
+                        &:not(.collapsed)::after {
+                            content: "\f056";
+                            font-family: "Font Awesome 6 pro";
+                            background: transparent;
+                            font-weight: 500;
+                            color: $white;
+                            transform: rotate(0);
+                        }
+        
+                        &.collapsed {
+                            background-color: transparent;
+                            border-radius: 5px;
+                            border: 1px solid #E0E0E0;
+                            padding: 20px 30px;
+                            color: $header-color;
+                        }
+                      
+                    }
+                }
+        
+                .accordion-collapse { 
+        
+                    .accordion-body {
+                        padding-right: 90px;
+                        padding-left: 25px;
+                        padding-top: 20px;
+                        padding-bottom: 30px;
+                        color: #666;
+                        border-radius: 0px 0px 5px 5px;
+                        background: $white;
+                        box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.05);
+        
+                        @include breakpoint (max-xxl){
+                            padding-right: 30px;
+                        }
+        
+                        @include breakpoint (max-lg){
+                            padding-right: 30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
