@@ -2,29 +2,6 @@
 	"use strict";
 
 	$(document).ready(function () {
-		//Dark Light Template Area//
-		$(".mode--toggle").on("click", function () {
-			setTheme(localStorage.getItem("theme"));
-		});
-		if (localStorage.getItem("theme") == "light-theme") {
-			localStorage.setItem("theme", "dark-theme");
-		} else {
-			localStorage.setItem("theme", "light-theme");
-		}
-		setTheme(localStorage.getItem("theme"));
-		function setTheme(theme) {
-			if (theme == "dark-theme") {
-				localStorage.setItem("theme", "light-theme");
-				$("html").addClass(theme);
-				$(".mode--toggle").find("img").attr("src", "assets/img/sun.png");
-			} else {
-				localStorage.setItem("theme", "dark-theme");
-				$("html").removeClass("dark-theme");
-				$(".mode--toggle").find("img").attr("src", "assets/img/moon.png");
-			}
-		}
-		//Dark Light Template Area//
-
 		//>> Mobile Menu Js Start <<//
 		$("#mobile-menu").meanmenu({
 			meanMenuContainer: ".mobile-menu",
@@ -218,6 +195,41 @@
 			$(".header-search-bar").removeClass("search-open");
 			$(".offcanvas-overlay").removeClass("offcanvas-overlay-open");
 		});
+
+		//Dark Light Template Area//
+		$(".mode--toggle").on("click", function () {
+			toggleTheme();
+		});
+
+		function toggleTheme() {
+			const currentTheme = localStorage.getItem("theme") || "light-theme";
+			const newTheme =
+				currentTheme === "light-theme" ? "dark-theme" : "light-theme";
+
+			localStorage.setItem("theme", newTheme);
+			setTheme(newTheme);
+		}
+
+		function setTheme(theme) {
+			if (theme === "dark-theme") {
+				$("html").addClass("dark-theme");
+				$(".mode--toggle")
+					.find("i")
+					.removeClass("fa-moon")
+					.addClass("fa-sun");
+			} else {
+				$("html").removeClass("dark-theme");
+				$(".mode--toggle")
+					.find("i")
+					.removeClass("fa-sun")
+					.addClass("fa-moon");
+			}
+		}
+
+		// Initialize theme on page load
+		setTheme(localStorage.getItem("theme") || "light-theme");
+
+		//Dark Light Template Area//
 
 		//>> Back To Top Slider Start <<//
 		$(window).scroll(function () {
